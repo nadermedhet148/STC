@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet id="seedPermissionGroups" author="nader" dbms="postgresql">
+        <sql>
+            INSERT INTO public.permission_groups (group_name) VALUES
+            ('admin');
+        </sql>
+
+    </changeSet>
+
+    <changeSet id="seedPermission" author="nader" dbms="postgresql">
+
+        <sql>
+            INSERT INTO public.permissions (user_email,permission_level,permission_group_id) VALUES
+            ('viewer@test.com','VIEW',1),
+            ('editor@test.com','EDIT',1);
+        </sql>
+
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:testing;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}
+    username: ${DB_USER_NAME:}
+    password: ${DB_PASSWORD:}
+    hikari:
+      auto-commit: false
+  jpa:
+    properties:
+      hibernate:
+        autocommit: false
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    contexts: prod
+    change-log: classpath:config/liquibase/master.xml
+  graphql:
+    graphiql:
+      enabled: true
